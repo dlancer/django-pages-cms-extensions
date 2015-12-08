@@ -28,7 +28,7 @@ Requirements
 
 ::
 
-    django-pages-cms>=0.1.19
+    django-pages-cms>=0.1.20
     django-embed-video==1.0.0
 
 Usage
