@@ -1,6 +1,6 @@
 import os
 from setuptools import setup, find_packages
-from pages import get_version as get_package_version
+from pagesext import get_version as get_package_version
 
 
 README = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read()
