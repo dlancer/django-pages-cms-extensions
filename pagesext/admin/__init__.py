@@ -1,0 +1,2 @@
+from pagesext.admin.pagefilecontent import PageFileContentAdmin
+from pagesext.admin.pagevideocontent import PageVideoContentAdmin

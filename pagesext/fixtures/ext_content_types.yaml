@@ -1,0 +1,15 @@
+- model: pages.pagecontenttype
+  pk: 7
+  fields:
+    type: video
+    is_extended: True
+    class_name: PageVideoContent
+    admin_class_name: PageVideoContentInline
+
+- model: pages.pagecontenttype
+  pk: 8
+  fields:
+    type: file
+    is_extended: True
+    class_name: PageFileContent
+    admin_class_name: PageFileContentInline

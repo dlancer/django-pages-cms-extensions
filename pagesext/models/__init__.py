@@ -1,0 +1,2 @@
+from pagesext.models.pagevideocontent import PageVideoContent
+from pagesext.models.pagefilecontent import PageFileContent

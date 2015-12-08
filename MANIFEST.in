@@ -1,0 +1,7 @@
+include LICENSE
+include README.rst
+include requirements.txt
+recursive-include extpages/fixtures *
+recursive-include extpages/static *
+recursive-include extpages/templates *
+recursive-include docs *
