@@ -1,7 +1,6 @@
 """Implements admin interface for page file content"""
 
 from django.contrib import admin
-
 from pages.conf import settings
 
 if settings.PAGES_PAGE_USE_EXT_CONTENT_TYPES:
@@ -12,12 +11,12 @@ if settings.PAGES_PAGE_USE_EXT_CONTENT_TYPES:
         list_display_links = ['__str__']
         fieldsets = [
             (None, {'fields': [
-                ('language', ),
-                ('name', ),
-                ('file', ),
-                ('title', ),
-                ('description', ),
-                ('comment', ),
+                ('language',),
+                ('name',),
+                ('file',),
+                ('title',),
+                ('description',),
+                ('comment',),
             ]}),
         ]
 
@@ -33,11 +32,11 @@ if settings.PAGES_PAGE_USE_EXT_CONTENT_TYPES:
         exclude = ('sid', 'is_extended', 'created_by', 'updated_by', 'date_created', 'date_updated',)
         fieldsets = [
             (None, {'fields': [
-                ('language', ),
-                ('name', ),
-                ('file', ),
-                ('title', ),
-                ('description', ),
-                ('comment', ),
+                ('language',),
+                ('name',),
+                ('file',),
+                ('title',),
+                ('description',),
+                ('comment',),
             ]}),
         ]

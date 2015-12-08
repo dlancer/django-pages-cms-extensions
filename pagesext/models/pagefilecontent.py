@@ -49,7 +49,6 @@ if settings.PAGES_PAGE_USE_EXT_CONTENT_TYPES:
             ext=ext
         )
 
-
     class PageFileContent(PageBaseContent):
         file = models.FileField(blank=True, null=True, upload_to=make_file_upload_path, storage=file_storage)
         title = models.CharField(max_length=160, blank=True)

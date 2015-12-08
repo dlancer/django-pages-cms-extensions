@@ -70,4 +70,3 @@ class TestExtPages(PagesExtCase):
         self.assertEqual(response.status_code, 200)
         self.page_foo.delete()
         cache.clear()
-
