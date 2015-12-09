@@ -26,7 +26,7 @@ if settings.PAGES_PAGE_USE_EXT_CONTENT_TYPES:
 
     admin.site.register(PageFileContent, PageFileContentAdmin)
 
-    class PageVideoContentInline(admin.StackedInline):
+    class PageFileContentInline(admin.StackedInline):
         model = PageFileContent
         extra = 1
         exclude = ('sid', 'is_extended', 'created_by', 'updated_by', 'date_created', 'date_updated',)
