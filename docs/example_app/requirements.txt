@@ -1,4 +1,4 @@
-django>=1.7
-django-pages-cms>=0.1.23
-django-pages-cms-extensions>=0.0.6
+django>=1.8,<1.9
+django-pages-cms>=0.1.25
+django-pages-cms-extensions>=0.0.7
 django-embed-video==1.0.0
