@@ -19,6 +19,7 @@ You must add these apps to your list of ``INSTALLED_APPS`` in ``settings.py``::
         'easy_thumbnails',
         'image_cropping',
         'embed_video',
+        'taggit',
         'pages',
         'pagesext',
     )
@@ -45,7 +46,7 @@ Django 1.9+ support
 -------------------
 
 Django 1.9+ currently not supported due incompatibility with used 3rd party apps.
-This is will be resolved soon.
+This problem will be resolved soon.
 
 Multilingual support
 --------------------
@@ -71,6 +72,23 @@ Customizing content management system
 
 You have a lot of options available to you to customize ``django-pages-cms-extensions``.
 These options should be defined in your ``settings.py`` file.
+
+**CMS file system settings**
+
+* ``PAGES_EXT_FILE_LOCATION``: directory for uploading files (default is Django MEDIA_ROOT)
+* ``PAGES_EXT_FILE_UPLOAD_PERMISSIONS``: permissions for uploading files
+* ``PAGES_EXT_FILE_UPLOAD_DIRECTORY_PERMISSIONS``: permissions for uploading directory
+* ``PAGES_EXT_FILE_OVERWRITE_EXISTS``: overwrite file with existed filename (default: True)
+
+**CMS image type settings**
+
+* ``PAGES_EXT_IMAGE_DIR``: directory for images (default: 'pages/images')
+* ``PAGES_EXT_IMAGE_WIDTH_MAX``: maximum width for images
+* ``PAGES_EXT_IMAGE_HEIGHT_MAX``: maximum height for images
+* ``PAGES_EXT_IMAGE_USE_ORIGINAL_FILENAME``: use original filename for uploading image (default: False)
+* ``PAGES_EXT_DELETE_IMAGE_FILE``: delete image file for deleted image object (default: False)
+
+**CMS file type settings**
 
 * ``PAGES_EXT_FILE_DIR``: directory for files (default: 'pages/files')
 * ``PAGES_EXT_FILE_USE_ORIGINAL_FILENAME``: use original filename for uploading file (default: False)

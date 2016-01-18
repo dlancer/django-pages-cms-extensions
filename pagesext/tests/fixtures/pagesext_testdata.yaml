@@ -37,6 +37,7 @@
   pk: 6
   fields:
     type: image
+    is_extended: True
     class_name: PageImageContent
     admin_class_name: PageImageContentInline
 

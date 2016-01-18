@@ -10,10 +10,19 @@ from pages.models import PageSlugContent, PageMetaContent
 from pages.models import PageTextContent
 from pages.views import PageDetailsView
 from pagesext.tests.base import PagesExtCase
-from pagesext.models import PageVideoContent, PageFileContent
+from pagesext.models import PageImageContent, PageVideoContent, PageFileContent
 
 
 class TestExtPages(PagesExtCase):
+
+    def test_page_image_model(self):
+        PageImageContent.objects.create(page=self.page_foo)
+        obj = PageImageContent.objects.filter(page=self.page_foo, language='en')[0]
+        sid = obj.sid
+        self.assertEqual(sid, 'en:Test:image:1')
+        obj.language = 'de'
+        obj.save()
+        self.assertEqual(obj.sid, 'de:Test:image:1')
 
     def test_page_video_model(self):
         PageVideoContent.objects.create(page=self.page_foo)
@@ -33,6 +42,25 @@ class TestExtPages(PagesExtCase):
         obj.save()
         self.assertEqual(obj.sid, 'de:Test:file:1')
 
+    def test_page_image_view(self):
+        PageSlugContent.objects.create(page=self.page_foo, slug='test')
+        PageMetaContent.objects.create(page=self.page_foo, title='test', description='test', keywords='test')
+        PageTextContent.objects.create(page=self.page_foo, text='test')
+        PageImageContent.objects.create(page=self.page_foo, image='img/test.jpg', title='test')
+        self.page_foo.template = 'pages/page_image.html'
+        self.page_foo.save()
+        page_url = reverse('pages:show', kwargs={'slug': 'test'})
+        request = self.factory.get(page_url)
+        request.user = AnonymousUser()
+        context = RequestContext(request)
+        view = PageDetailsView.as_view()
+        translation.activate('en')
+        response = view(request=request, context=context, slug='test')
+        translation.deactivate()
+        self.assertEqual(response.status_code, 200)
+        self.page_foo.delete()
+        cache.clear()
+
     def test_page_video_view(self):
         PageSlugContent.objects.create(page=self.page_foo, slug='test')
         PageMetaContent.objects.create(page=self.page_foo, title='test', description='test', keywords='test')
@@ -40,7 +68,7 @@ class TestExtPages(PagesExtCase):
         PageVideoContent.objects.create(page=self.page_foo, video='xxx', title='test')
         self.page_foo.template = 'pages/page_video.html'
         self.page_foo.save()
-        page_url = reverse('page_show', kwargs={'slug': 'test'})
+        page_url = reverse('pages:show', kwargs={'slug': 'test'})
         request = self.factory.get(page_url)
         request.user = AnonymousUser()
         context = RequestContext(request)
@@ -59,7 +87,7 @@ class TestExtPages(PagesExtCase):
         PageFileContent.objects.create(page=self.page_foo, file='files/test.txt', title='test')
         self.page_foo.template = 'pages/page_file.html'
         self.page_foo.save()
-        page_url = reverse('page_show', kwargs={'slug': 'test'})
+        page_url = reverse('pages:show', kwargs={'slug': 'test'})
         request = self.factory.get(page_url)
         request.user = AnonymousUser()
         context = RequestContext(request)

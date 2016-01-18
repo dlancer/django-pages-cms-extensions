@@ -5,6 +5,11 @@ SITE_ID = 1
 
 BASE_DIR = os.path.dirname(__file__)
 
+# Absolute filesystem path to the directory that will hold user-uploaded files.
+STATIC_ROOT = os.path.join(BASE_DIR, 'web/static')
+
+STATIC_URL = '/static/'
+
 ROOT_URLCONF = 'urls'
 SECRET_KEY = 'secretkey'
 SITE_ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -38,6 +43,7 @@ INSTALLED_APPS = (
     'easy_thumbnails',
     'image_cropping',
     'embed_video',
+    'taggit',
     'pages',
     'pagesext',
 )
@@ -91,5 +97,14 @@ MARKITUP_FILTER = ('markdown.markdown', {'safe_mode': False, 'extensions': ['ext
 # pages
 PAGES_CACHE_DELETE = True
 PAGES_PAGE_USE_EXT_CONTENT_TYPES = True
-PAGES_PAGE_EXT_CONTENT_TYPES = ('pagesext.models.pagevideocontent', 'pagesext.models.pagefilecontent', )
-PAGES_PAGE_EXT_CONTENT_TYPES_INLINES = ('pagesext.admin.pagevideocontent', 'pagesext.admin.pagefilecontent', )
+PAGES_PAGE_EXT_CONTENT_TYPES = (
+    'pagesext.models.pageimagecontent',
+    'pagesext.models.pagevideocontent',
+    'pagesext.models.pagefilecontent'
+)
+PAGES_PAGE_EXT_CONTENT_INLINES = (
+    'pagesext.admin.pageimagecontent',
+    'pagesext.admin.pagevideocontent',
+    'pagesext.admin.pagefilecontent'
+)
+PAGES_FALLBACK_LANGUAGE = 'en'

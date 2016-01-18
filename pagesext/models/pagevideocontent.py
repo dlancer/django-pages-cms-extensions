@@ -5,6 +5,8 @@ from __future__ import unicode_literals
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
+from taggit.managers import TaggableManager
+
 from pages.conf import settings
 from pages.models.pagebasecontent import PageBaseContent
 
@@ -15,6 +17,7 @@ if settings.PAGES_PAGE_USE_EXT_CONTENT_TYPES:
         video = EmbedVideoField(blank=True)
         title = models.CharField(max_length=160, blank=True)
         description = models.TextField(max_length=160, blank=True)
+        tags = TaggableManager()
         objects = models.Manager()
 
         def update_fields(self, change):

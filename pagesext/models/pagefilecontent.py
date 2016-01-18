@@ -12,14 +12,16 @@ from django.utils.translation import ugettext_lazy as _
 from django.db.models.signals import post_delete
 from django.dispatch import receiver
 
+from taggit.managers import TaggableManager
+
 from pages.conf import settings
 from pages.models.pagebasecontent import PageBaseContent
-from pages.storage import PageFileSystemStorage
+from pagesext.storage import PageExtFileSystemStorage
 from pagesext.conf import settings as ext_settings
 
 if settings.PAGES_PAGE_USE_EXT_CONTENT_TYPES:
 
-    file_storage = PageFileSystemStorage()
+    file_storage = PageExtFileSystemStorage()
 
     def make_file_upload_path(instance, filename, prefix=False):
         """Generate upload path and filename for file"""
@@ -53,6 +55,7 @@ if settings.PAGES_PAGE_USE_EXT_CONTENT_TYPES:
         file = models.FileField(blank=True, null=True, upload_to=make_file_upload_path, storage=file_storage)
         title = models.CharField(max_length=160, blank=True)
         description = models.TextField(max_length=160, blank=True)
+        tags = TaggableManager()
         objects = models.Manager()
 
         def update_fields(self, change):

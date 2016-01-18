@@ -28,8 +28,11 @@ Requirements
 
 ::
 
-    django-pages-cms>=0.1.23
+    django-pages-cms>=0.2.0
+    django-image-cropping>=1.0.3
+    django-taggit>=0.17.6
     django-embed-video==1.0.0
+
 
 Usage
 =====
