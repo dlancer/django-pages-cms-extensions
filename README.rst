@@ -32,6 +32,7 @@ Requirements
     django-image-cropping>=1.0.3
     django-taggit>=0.17.6
     django-embed-video==1.0.0
+    easy_thumbnails>=2.3
 
 
 Usage
