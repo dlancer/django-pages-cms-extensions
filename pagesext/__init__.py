@@ -1,4 +1,4 @@
-VERSION = (0, 0, 7)
+VERSION = (0, 1, 0)
 
 
 def get_version():
@@ -7,7 +7,7 @@ def get_version():
 
 __author__ = 'dlancer'
 __docformat__ = 'restructuredtext en'
-__copyright__ = 'Copyright 2015, dlancer'
+__copyright__ = 'Copyright 2015-2016, dlancer'
 __license__ = 'BSD'
 __version__ = get_version()
 __maintainer__ = 'dlancer'
