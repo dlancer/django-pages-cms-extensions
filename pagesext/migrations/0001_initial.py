@@ -60,7 +60,7 @@ class Migration(migrations.Migration):
                 ('date_created', models.DateTimeField(default=django.utils.timezone.now, verbose_name='Created')),
                 ('date_updated', models.DateTimeField(default=django.utils.timezone.now, verbose_name='Updated')),
                 ('image', image_cropping.fields.ImageCropField(storage=pagesext.storage.PageExtFileSystemStorage(), null=True, upload_to=pagesext.models.pageimagecontent.make_image_upload_path, blank=True)),
-                (b'cropping', image_cropping.fields.ImageRatioField('image', '600x800', hide_image_field=False, size_warning=True, allow_fullsize=True, free_crop=False, adapt_rotation=False, help_text=None, verbose_name='cropping')),
+                ('cropping', image_cropping.fields.ImageRatioField('image', '600x800', hide_image_field=False, size_warning=True, allow_fullsize=True, free_crop=False, adapt_rotation=False, help_text=None, verbose_name='cropping')),
                 ('title', models.CharField(max_length=250, blank=True)),
                 ('created_by', models.ForeignKey(related_name='pagesext_pageimagecontent_creator', to=settings.AUTH_USER_MODEL, null=True)),
                 ('page', models.ForeignKey(verbose_name='Page', to='pages.Page')),
