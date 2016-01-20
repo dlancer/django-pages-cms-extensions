@@ -29,7 +29,7 @@ class TestExtPages(PagesExtCase):
         sid = obj.sid
         self.assertEqual(sid, 'en:Test:tags:1')
         obj.add('tag1', 'tag2')
-        names = obj.tags.names()
+        names = sorted(list(obj.tags.names()))
         self.assertEqual(names[0], 'tag1')
         self.assertEqual(names[1], 'tag2')
         obj.set('tag3', 'tag4')
