@@ -1,13 +1,21 @@
 - model: pages.pagecontenttype
   pk: 6
   fields:
+    type: tags
+    is_extended: True
+    class_name: PageTagsContent
+    admin_class_name: PageTagsContentInline
+
+- model: pages.pagecontenttype
+  pk: 7
+  fields:
     type: image
     is_extended: True
     class_name: PageImageContent
     admin_class_name: PageImageContentInline
 
 - model: pages.pagecontenttype
-  pk: 7
+  pk: 8
   fields:
     type: video
     is_extended: True
@@ -15,7 +23,7 @@
     admin_class_name: PageVideoContentInline
 
 - model: pages.pagecontenttype
-  pk: 8
+  pk: 9
   fields:
     type: file
     is_extended: True

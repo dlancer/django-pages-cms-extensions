@@ -1,3 +1,4 @@
+from pagesext.admin.pagetagscontent import PageTagsContentAdmin
 from pagesext.admin.pageimagecontent import PageImageContentAdmin
 from pagesext.admin.pagefilecontent import PageFileContentAdmin
 from pagesext.admin.pagevideocontent import PageVideoContentAdmin

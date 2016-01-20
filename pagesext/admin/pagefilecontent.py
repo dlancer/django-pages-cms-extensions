@@ -16,6 +16,7 @@ if settings.PAGES_PAGE_USE_EXT_CONTENT_TYPES:
                 ('file',),
                 ('title',),
                 ('description',),
+                ('tags',),
                 ('comment',),
             ]}),
         ]

@@ -98,11 +98,13 @@ MARKITUP_FILTER = ('markdown.markdown', {'safe_mode': False, 'extensions': ['ext
 PAGES_CACHE_DELETE = True
 PAGES_PAGE_USE_EXT_CONTENT_TYPES = True
 PAGES_PAGE_EXT_CONTENT_TYPES = (
+    'pagesext.models.pagetagscontent',
     'pagesext.models.pageimagecontent',
     'pagesext.models.pagevideocontent',
     'pagesext.models.pagefilecontent'
 )
 PAGES_PAGE_EXT_CONTENT_INLINES = (
+    'pagesext.admin.pagetagscontent',
     'pagesext.admin.pageimagecontent',
     'pagesext.admin.pagevideocontent',
     'pagesext.admin.pagefilecontent'

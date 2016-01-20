@@ -19,5 +19,8 @@ class PagesExtCase(TestCase):
         self.page_foo = Page.objects.create(name='Test', created_by=self.user_foo,
                                             updated_by=self.user_foo, is_draft=False, is_published=True)
 
+        self.page_foo2 = Page.objects.create(name='Test2', created_by=self.user_foo,
+                                             updated_by=self.user_foo, is_draft=False, is_published=True)
+
     def tearDown(self):
         self.user_foo.delete()
