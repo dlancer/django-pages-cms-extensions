@@ -47,7 +47,7 @@ if settings.PAGES_PAGE_USE_EXT_CONTENT_TYPES:
             name = name_hash
 
         return u'{path}/{sub0}/{sub1}/{sub2}/{name}.{ext}'.format(
-                path=settings.PAGES_IMAGE_DIR,
+                path=settings.PAGES_EXT_IMAGE_DIR,
                 sub0=file_uuid[0:2],
                 sub1=file_uuid[7:9],
                 sub2=file_uuid[12:14],
