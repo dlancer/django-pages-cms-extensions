@@ -69,7 +69,7 @@ if settings.PAGES_PAGE_USE_EXT_CONTENT_TYPES:
 
         def image_cropping_link(self):
             """Return image cropping link"""
-            change_url = reverse('admin:pages_pageimagecontent_change', args=(self.id,))
+            change_url = reverse('admin:pagesext_pageimagecontent_change', args=(self.id,))
             return '<a href="{0:>s}" onclick="return showAddAnotherPopup(this);">{1:>s}</a>'.format(change_url, _('CROP'))
 
         image_cropping_link.short_description = _('Cropping')
