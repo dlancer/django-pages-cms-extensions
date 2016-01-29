@@ -66,6 +66,7 @@ if settings.PAGES_PAGE_USE_EXT_CONTENT_TYPES:
         def update_fields(self, change):
             if not change:
                 self.type = 'image'
+                self.is_extended = True
 
         def image_cropping_link(self):
             """Return image cropping link"""
