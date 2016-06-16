@@ -1,4 +1,4 @@
 django>=1.8
-django-pages-cms>=0.2.5
+django-pages-cms>=0.2.6
 django-pages-cms-extensions>=0.1.6
 
