@@ -3,15 +3,16 @@ language: python
 python:
   - "3.3"
   - "3.4"
+  - "3.5"
   - "2.7"
 
 env:
-  - DJANGO="django==1.8.11"
+  - DJANGO="django==1.8.13"
 
 matrix:
   include:
     - python: "3.5"
-      env: DJANGO="django==1.8.11"
+      env: DJANGO="django==1.9.7"
 
 
 install:
