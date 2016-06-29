@@ -17,6 +17,18 @@
     {% page_text_by_id 1 %}
     {% get_page_image_by_id 1 as img %}
     <img src="{{ img.image }}" alt="{{ img.title }}" />
+    <br />
+    {% get_page_image_by_tag "test" as img1 %}
+    <img src="{{ img1.image }}" alt="{{ img1.title }}" />
+    <br />
+    {% get_page_image_by_tag "image-2" as img2 %}
+    <img src="{{ img2.image }}" alt="{{ img2.title }}" />
+    <br />
+    {% get_page_images_by_tags "test" as images %}
+    {% for item in images %}
+        <img src="{{ item.image }}" alt="{{ item.title }}" />
+    {% endfor %}
+
 {% endcache %}
 
 </body>

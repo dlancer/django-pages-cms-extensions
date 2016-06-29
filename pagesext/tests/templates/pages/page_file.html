@@ -16,6 +16,22 @@
 {% cache page.timeout "pages" page.cache_key page.cache_version %}
     {% page_text_by_id 1 %}
     {% get_page_file_by_id 1 as item %}
+
+    <a href="{{ item.file.url }}" title="{{ item.title }}">file</a>
+    <br />
+
+    {% get_page_file_by_tag "test" as file1 %}
+    <a href="{{ file1.file.url }}" title="{{ file1.title }}">file1</a>
+    <br />
+    {% get_page_file_by_tag "file-2" as file2 %}
+    <a href="{{ file2.file.url }}" title="{{ file2.title }}">file2</a>
+    <br />
+
+    {% get_page_files_by_tags "test" as files %}
+    {% for item in files %}
+        <a href="{{ item.file.url }}" title="{{ item.title }}">file</a>
+    {% endfor %}
+
 {% endcache %}
 
 </body>

@@ -104,6 +104,12 @@ class TestExtPages(PagesExtCase):
         PageMetaContent.objects.create(page=self.page_foo, title='test', description='test', keywords='test')
         PageTextContent.objects.create(page=self.page_foo, text='test')
         PageImageContent.objects.create(page=self.page_foo, image='img/test.jpg', title='test')
+
+        img1 = PageImageContent.objects.create(page=self.page_foo, image='img/test.jpg', title='test')
+        img1.tags.add('test', 'image-1')
+        img2 = PageImageContent.objects.create(page=self.page_foo, image='img/test.jpg', title='test')
+        img2.tags.add('test', 'image-2')
+
         self.page_foo.template = 'pages/page_image.html'
         self.page_foo.save()
         page_url = reverse('pages:show', kwargs={'slug': 'test'})
@@ -113,6 +119,7 @@ class TestExtPages(PagesExtCase):
         view = PageDetailsView.as_view()
         translation.activate('en')
         response = view(request=request, context=context, slug='test')
+
         translation.deactivate()
         self.assertEqual(response.status_code, 200)
         self.page_foo.delete()
@@ -122,7 +129,19 @@ class TestExtPages(PagesExtCase):
         PageSlugContent.objects.create(page=self.page_foo, slug='test')
         PageMetaContent.objects.create(page=self.page_foo, title='test', description='test', keywords='test')
         PageTextContent.objects.create(page=self.page_foo, text='test')
-        PageVideoContent.objects.create(page=self.page_foo, video='xxx', title='test')
+        PageVideoContent.objects.create(
+            page=self.page_foo, video='https://www.youtube.com/watch?v=C0DPdy98e4c', title='test'
+        )
+
+        video1 = PageVideoContent.objects.create(
+            page=self.page_foo, video='https://www.youtube.com/watch?v=C0DPdy98e4c', title='test'
+        )
+        video1.tags.add('test', 'video-1')
+        video2 = PageVideoContent.objects.create(
+            page=self.page_foo, video='https://www.youtube.com/watch?v=C0DPdy98e4c', title='test'
+        )
+        video2.tags.add('test', 'video-2')
+
         self.page_foo.template = 'pages/page_video.html'
         self.page_foo.save()
         page_url = reverse('pages:show', kwargs={'slug': 'test'})
@@ -142,6 +161,12 @@ class TestExtPages(PagesExtCase):
         PageMetaContent.objects.create(page=self.page_foo, title='test', description='test', keywords='test')
         PageTextContent.objects.create(page=self.page_foo, text='test')
         PageFileContent.objects.create(page=self.page_foo, file='files/test.txt', title='test')
+
+        file1 = PageFileContent.objects.create(page=self.page_foo, file='files/test.txt', title='test')
+        file1.tags.add('test', 'file-1')
+        file2 = PageFileContent.objects.create(page=self.page_foo, file='files/test.txt', title='test')
+        file2.tags.add('test', 'file-2')
+
         self.page_foo.template = 'pages/page_file.html'
         self.page_foo.save()
         page_url = reverse('pages:show', kwargs={'slug': 'test'})

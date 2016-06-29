@@ -23,6 +23,36 @@
         Backend: {{ example_video.backend }}
         {% video example_video "large" %}
     {% endvideo %}
+
+    <br />
+    {% get_page_video_by_tag "test" as video1 %}
+    {% video video1.video as example_video %}
+        URL: {{ example_video.url }}
+        Thumbnail: {{ example_video.thumbnail }}
+        Backend: {{ example_video.backend }}
+        {% video example_video "large" %}
+    {% endvideo %}
+
+    <br />
+    {% get_page_video_by_tag "video-2" as video2 %}
+    {% video video2.video as example_video %}
+        URL: {{ example_video.url }}
+        Thumbnail: {{ example_video.thumbnail }}
+        Backend: {{ example_video.backend }}
+        {% video example_video "large" %}
+    {% endvideo %}
+
+    <br />
+    {% get_page_videos_by_tags "test" as videos %}
+    {% for item in videos %}
+        {% video item.video as example_video %}
+            URL: {{ example_video.url }}
+            Thumbnail: {{ example_video.thumbnail }}
+            Backend: {{ example_video.backend }}
+            {% video example_video "large" %}
+        {% endvideo %}
+    {% endfor %}
+
 {% endcache %}
 
 </body>
