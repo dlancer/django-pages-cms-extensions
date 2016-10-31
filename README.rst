@@ -30,12 +30,12 @@ Requirements
 
     django-pages-cms>=0.2.8
     django-image-cropping>=1.0.3
-    django-taggit>=0.20.2
+    django-taggit>=0.21.3
     django-embed-video>=1.1.0
     easy_thumbnails>=2.3
 
 Usage
 =====
 
-You may find detailed documentation in the "docs" directory.
+You can find detailed documentation in the "docs" directory.
 
