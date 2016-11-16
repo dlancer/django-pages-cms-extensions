@@ -29,7 +29,7 @@ Requirements
 ::
 
     django-pages-cms>=0.2.8
-    django-image-cropping>=1.0.3
+    django-image-cropping>=1.0.4
     django-taggit>=0.21.3
     django-embed-video>=1.1.0
     easy_thumbnails>=2.3
