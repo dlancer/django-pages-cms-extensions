@@ -13,6 +13,7 @@ class PageImageContentAdmin(ImageCroppingMixin, admin.ModelAdmin):
     save_on_top = True
     actions_on_bottom = True
 
+
 admin.site.register(PageImageContent, PageImageContentAdmin)
 
 

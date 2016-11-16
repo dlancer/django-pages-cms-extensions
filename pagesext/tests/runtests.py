@@ -20,5 +20,6 @@ def runtests():
         os.unlink('test.db')
     return bool(failures)
 
+
 if __name__ == '__main__':
     sys.exit(runtests())
